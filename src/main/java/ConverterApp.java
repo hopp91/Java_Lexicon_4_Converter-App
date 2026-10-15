@@ -79,22 +79,26 @@ public class ConverterApp {
 
                     // Grade Converter
 
-                    IO.println("Enter your score (0-100): ");
+                    int score = Integer.parseInt(
+                            IO.readln("Enter your score (0-100): ")
+                    );
 
-                    if (MIN_SCORE < 0 || MAX_SCORE > 100) {
-                        IO.println("Invalid score! Enter a score between 0 and 100.");
-                    } else if (GRADE_A_MIN >= 90) {
-                        IO.println("Grade: A ");
-                        IO.println("Label: Excellent ");
-                    } else if (GRADE_B_MIN >= 80) {
-                        IO.println("Grade: B ");
-                        IO.println("Label: Good ");
-                    } else if (GRADE_C_MIN >= 70) {
-                        IO.println("Grade: C ");
-                        IO.println("Label: Pass ");
-                    } else if (GRADE_D_MIN >= 60) {
-                        IO.println("Grade: D ");
-                        IO.println("Label: Below average ");
+                    if (score < MIN_SCORE || score > MAX_SCORE) {
+                        IO.println("Invalid score! Enter a score between "
+                                + MIN_SCORE + " and " + MAX_SCORE);
+
+                    } else if (score >= GRADE_A_MIN) {
+                        IO.println("Grade: A");
+                        IO.println("Label: Excellent");
+                    } else if (score >= GRADE_B_MIN) {
+                        IO.println("Grade: B");
+                        IO.println("Label: Good");
+                    } else if (score >= GRADE_C_MIN) {
+                        IO.println("Grade: C");
+                        IO.println("Label: Pass");
+                    } else if (score >= GRADE_D_MIN) {
+                        IO.println("Grade: D");
+                        IO.println("Label: Below average");
                     } else {
                         IO.println("Grade: F ");
                         IO.println("Label: Fail ");
@@ -103,7 +107,6 @@ public class ConverterApp {
 
                 case 4:
                     IO.println("Goodbye!");
-                    System.exit(0);
                     break;
 
                 default:
